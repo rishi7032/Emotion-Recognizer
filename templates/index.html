@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Emotion Recognition</title>
+    <!-- Add Bootstrap CDN links here if not already included -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <style>
+        body {
+            background: linear-gradient(45deg, #36D1DC, #5B86E5);
+            padding: 20px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            animation: gradientAnimation 10s infinite alternate;
+            position: relative; /* Added */
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .btn-detect {
+            width: 100%;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        
+        .author {
+            position: fixed;
+            font-size: 20px;
+            bottom: 10px;
+            right: 10px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Face Emotion Recognition with CNN</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <a href="{{ url_for('video') }}" class="btn btn-warning btn-detect">Start Live Detection</a>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+<div class="author">Developed by Vagmare Rishikesh</div>
+
+<script>
+    document.addEventListener('mousemove', function () {
+        document.body.style.animation = 'none';
+        setTimeout(function () {
+            document.body.style.animation = 'gradientAnimation 10s infinite alternate';
+        }, 100); 
+    });
+</script>
+
+</body>
+</html>

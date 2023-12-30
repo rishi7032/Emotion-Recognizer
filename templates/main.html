@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Face Emotion Recognizer</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px;
+            background: linear-gradient(45deg, #36D1DC, #5B86E5);
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        a {
+            color: rgb(9, 9, 9);
+            font-size: 40px;
+            text-decoration: none !important;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+        
+        .container-fluid {
+            padding: 20px;
+            background-color: rgba(66, 64, 64, 0.9);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .blinking-dot {
+            width: 20px;
+            height: 20px;
+            background-color: red; /* Adjust color as needed */
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}">Face Emotion Recognizer</a>
+    <br><br>
+
+    <div class="container-fluid">
+        <div class="blinking-dot"></div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+
+</html>
