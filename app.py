@@ -6,7 +6,7 @@ app = Flask(__name__)
 class VideoCamera:
     def __init__(self):
         # Open the default camera (you can change the index or camera device path based on your setup)
-        self.video_capture = cv2.VideoCapture(0)
+        self.video_capture = cv2.VideoCapture(1)
 
     def __del__(self):
         self.video_capture.release()
