@@ -37,9 +37,5 @@ def generate(camera):
 def video_feed():
     return Response(generate(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route("/video")
-def video():
-    return render_template("video.html")
-
 if __name__ == '__main__':
     app.run(debug=True)
