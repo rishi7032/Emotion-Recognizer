@@ -5,3 +5,4 @@ numpy
 Pillow
 tensorflow
 opencv-python
+tensorrt
