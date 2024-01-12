@@ -2,17 +2,22 @@
 
 {% block content %}
     <div class="text-center mt-4">
-        <img id="video" class="img-fluid img-thumbnail shadow" src="{{ url_for('video_feed') }}" alt="Face Emotion Recognizer">
+        <video id="video" class="img-fluid img-thumbnail shadow" autoplay playsinline></video>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const video = document.getElementById("video");
 
-            // Refresh the image source every second
-            setInterval(() => {
-                video.src = "{{ url_for('video_feed') }}?" + new Date().getTime();
-            }, 1000);
+            // Prompt the user for camera access
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((stream) => {
+                    video.srcObject = stream;
+                })
+                .catch((error) => {
+                    console.error("Error accessing the camera:", error);
+                    alert("Failed to access the camera. Please ensure the camera is connected and permissions are granted.");
+                });
         });
     </script>
 {% endblock %}
