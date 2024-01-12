@@ -57,6 +57,15 @@
                 opacity: 0;
             }
         }
+
+        #video {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -66,10 +75,24 @@
 
     <div class="container-fluid">
         <div class="blinking-dot"></div>
+        <video id="video" playsinline autoplay></video>
         {% block content %}
         {% endblock %}
     </div>
-    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('video');
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((stream) => {
+                    video.srcObject = stream;
+                })
+                .catch((error) => {
+                    console.error('Error accessing camera:', error);
+                });
+        });
+    </script>
 </body>
 
 </html>
